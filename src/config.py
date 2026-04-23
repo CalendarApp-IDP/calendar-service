@@ -1,0 +1,13 @@
+import os
+
+class Config:
+    SQLALCHEMY_DATABASE_URI = os.getenv("CALENDAR_DATABASE_URL")
+
+    KEYCLOAK_URL = os.getenv("KEYCLOAK_URL")
+    KEYCLOAK_REALM = os.getenv("KEYCLOAK_REALM")
+    KEYCLOAK_CLIENT_ID = os.getenv("KEYCLOAK_CLIENT_ID")
+
+    PROFILE_SERVICE_URL = os.getenv("PROFILE_SERVICE_URL")
+    REDIS_NODES = os.getenv("REDIS_NODES")
+
+    RABBITMQ_URL = os.getenv("RABBITMQ_URL")
