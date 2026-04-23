@@ -3,7 +3,6 @@ from .db import db
 from .models.group import Group
 from .models.group_user import GroupUser
 from .models.event import Event
-from .models.availability import Availability
 from .models.job import Job
 from .models.interval import Interval
 
