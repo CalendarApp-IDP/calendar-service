@@ -27,6 +27,12 @@ jobs:
       id: vars
       run: echo "SHA=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
+    - name: Build image
+      run: docker build -t alinioan/calendar-service:latest .
+
+    - name: Push image
+      run: docker push alinioan/calendar-service:latest
+
     - name: Build tagged image
       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/calendar-service:${{ steps.vars.outputs.SHA }} .
 
