@@ -1,15 +1,18 @@
+
 FROM python:3.11-slim
 
-WORKDIR /app
+WORKDIR /src
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY src/ ./src
+COPY . .
 
+ENV FLASK_APP=app.py
+ENV FLASK_ENV=production
 ENV PYTHONUNBUFFERED=1
-ENV PYTHONPATH=/app/src
 
 EXPOSE 5000
 
-CMD ["python", "src/app.py"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+
